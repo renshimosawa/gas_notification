@@ -1,14 +1,16 @@
 name: Gas Notification
 
 on:
+  push:
+    branches: [ main ]
   schedule:
-    - cron: '44 15 * * *'
+    - cron: '48 15 * * *'
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    timeout-minutes: 2
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.9
