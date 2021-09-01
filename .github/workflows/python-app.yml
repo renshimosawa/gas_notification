@@ -4,7 +4,7 @@ on:
   push:
       branches: [ main ]
   schedule:
-    - cron: '07 00 * * *'
+    - cron: '28 00 * * *'
 
 jobs:
   build:
@@ -27,6 +27,12 @@ jobs:
         pip install requests
         pip install datetime
         pip install schedule
+
+    - name: Create dot env file
+    - shell: bash
+      run: |
+        touch .env
+        echo "LINE_TOKEN=${{ rwKoFPlpAoJFy3z1WHAWMoARyBFd9pqo7iCG9XxEoRy }}" >> .env
     - name: Gas_Notify.py
       run: |
         python Gas_Notify.py
