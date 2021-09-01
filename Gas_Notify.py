@@ -11,7 +11,6 @@ import schedule
 Target_URL = 'https://gogo.gs/shop/0203000164'
 headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36"}
 resp = requests.get(Target_URL, headers=headers)
-time.sleep(3)
 resp.raise_for_status()
 now = datetime.datetime.now().strftime('%Y年%m月%d日')
 soup = bs4.BeautifulSoup(resp.text, "html.parser")
@@ -41,4 +40,4 @@ schedule.every().day.at("22:25").do(main, send_line_notify)
 
 while True:
     schedule.run_pending()
-    time.sleep(1)
+    time.sleep(3)
