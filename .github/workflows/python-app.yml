@@ -37,10 +37,10 @@ jobs:
       run: |
         python Gas_Notify.py
     - name: Commit and Push
-        run: |
-          git config user.name 'renshimosawa'
-          git config user.email 'polaris2760@gmail.com'
-          git add .
-          git commit -m "Commit Message"
-          git pull
-          git push origin master
+      run: |
+        git config user.name "renshimosawa"
+        git config user.email "polaris2760@gmail.com"
+        git add .
+        git commit -m "Commit Message"
+        git pull
+        git push origin master
