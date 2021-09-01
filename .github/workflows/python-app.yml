@@ -33,11 +33,3 @@ jobs:
     - name: Gas_Notify.py
       run: |
         python Gas_Notify.py
-    - name: Commit and Push # 実行した結果をプッシュして変更をレポジトリに反映
-        run: |
-          git config user.name "YOUR NAME"
-          git config user.email "YOUR MAIL"
-          git add .
-          git commit -m "Commit Message"
-          git pull
-          git push origin master
