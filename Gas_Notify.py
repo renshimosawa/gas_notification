@@ -37,5 +37,8 @@ def send_line_notify(notification_message):
 if __name__ == "__main__":
     main()
 
+schedule.every().day.at("22:25").do(main, send_line_notify)
 
-schedule.every().day.at("09:00").do(main, send_line_notify)
+while True:
+    schedule.run_pending()
+    time.sleep(1)
