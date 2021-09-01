@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 1
+    timeout-minutes: 0.5
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.9
@@ -31,12 +31,10 @@ jobs:
     - name: Create dot env file
       run: |
         touch .env
-        echo "LINE_TOKEN=${{ 'DC9x4EPqbGFFm6xuNGYe7wlmfYM57yUvLBW7KAYjecV' }}" >> .env
+        echo "LINE_TOKEN=${{ 'cr7b7diD93uQ0Lh78Ekh721cXBDN4cxghDKSOQrZcFK' }}" >> .env
     - name: Gas_Notify.py
       run: |
         python Gas_Notify.py
-    # - run: sleep 30
-    #     timeout-minutes: 10
     - name: Commit and Push
       run: |
         git config user.name "renshimosawa"
