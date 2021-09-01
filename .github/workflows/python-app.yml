@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 0.5
+    timeout-minutes: 1
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.9
