@@ -1,13 +1,10 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
-
-name: Python application
+name: Gas Notification
 
 on:
   push:
       branches: [ main ]
   schedule:
-    - cron: '51 23 * * *'
+    - cron: '52 23 * * *'
 
 jobs:
   build:
@@ -28,7 +25,9 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
         run: |
+          # Python 構文エラーまたは未定義の名前がある場合はビルドを停止する
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero はすべてのエラーを警告として扱う。 GitHub エディタの幅は 127 文字
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Gas_Notify.py
       run: |
