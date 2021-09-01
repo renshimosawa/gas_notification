@@ -37,5 +37,5 @@ jobs:
     -name: Early exit
       run: exit_with_success # I want to know what command I should write here
         if: true
-        -run: foo
-        -run: python Gas_Notify.py
+      -run: foo
+      -run: python Gas_Notify.py
