@@ -27,9 +27,13 @@ jobs:
         pip install datetime
         pip install schedule
         pip install python-dotenv
+        
+    - name: Create dot env file
+      run: |
+        touch .env
+        echo "LINE_TOKEN=${{ 'DC9x4EPqbGFFm6xuNGYe7wlmfYM57yUvLBW7KAYjecV' }}" >> .env
     - name: Gas_Notify.py
       run: |
-        env: "LINE_TOKEN=${{ 'DC9x4EPqbGFFm6xuNGYe7wlmfYM57yUvLBW7KAYjecV' }}"
         timeout-minutes: 10
         python Gas_Notify.py
     # - run: sleep 30
