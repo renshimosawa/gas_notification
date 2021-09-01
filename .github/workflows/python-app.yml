@@ -27,15 +27,17 @@ jobs:
         pip install datetime
         pip install schedule
         pip install python-dotenv
-
-    - name: Create dot env file
+    -name: Lint with flake8
       run: |
-        touch .env
-        echo "LINE_TOKEN=${{ 'DC9x4EPqbGFFm6xuNGYe7wlmfYM57yUvLBW7KAYjecV' }}" >> .env
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Gas_Notify.py
       run: |
-        python Gas_Notify.py
+        env: "LINE_TOKEN=${{ 'DC9x4EPqbGFFm6xuNGYe7wlmfYM57yUvLBW7KAYjecV' }}"
         timeout-minutes: 10
+        python Gas_Notify.py
     # - run: sleep 30
     - name: Commit and Push
       run: |
