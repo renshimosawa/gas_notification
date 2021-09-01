@@ -4,7 +4,7 @@ on:
   push:
       branches: [ main ]
   schedule:
-    - cron: '06 00 * * *'
+    - cron: '07 00 * * *'
 
 jobs:
   build:
@@ -26,7 +26,6 @@ jobs:
         pip install bs4
         pip install requests
         pip install datetime
-        pip install setting
         pip install schedule
     - name: Gas_Notify.py
       run: |
