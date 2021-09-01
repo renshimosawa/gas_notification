@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: '00 00 * * *'
+    - cron: '0 0 * * *'
 
 jobs:
   build:
@@ -31,7 +31,7 @@ jobs:
     - name: Create dot env file
       run: |
         touch .env
-        echo "LINE_TOKEN=${{ 'cr7b7diD93uQ0Lh78Ekh721cXBDN4cxghDKSOQrZcFK' }}" >> .env
+        echo "LINE_TOKEN=${{ 'sHNHa4NZnALtXkYWcqRbcBQBaR15xQtZoUhGsgTc7vR' }}" >> .env
     - name: Gas_Notify.py
       run: |
         python Gas_Notify.py
