@@ -27,6 +27,7 @@ jobs:
         pip install requests
         pip install datetime
         pip install schedule
+        pip install load_dotenv
 
     - name: Create dot env file
       run: |
