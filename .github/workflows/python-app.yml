@@ -33,14 +33,9 @@ jobs:
       run: |
         touch .env
         echo "LINE_TOKEN=${{ 'rwKoFPlpAoJFy3z1WHAWMoARyBFd9pqo7iCG9XxEoRy' }}" >> .env
-    - name: Gas_Notify.py
-      run: |
-        python Gas_Notify.py
-    - name: Commit and Push
-      run: |
-        git config user.name "renshimosawa"
-        git config user.email "polaris2760@gmail.com"
-        git add .
-        git commit -m "Commit Message"
-        git pull
-        git push origin master
+        
+    -name: Early exit
+      run: exit_with_success # I want to know what command I should write here
+      if: true
+      -run: foo
+      -run: python Gas_Notify.py
