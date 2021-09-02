@@ -33,6 +33,9 @@ jobs:
         touch .env
         echo "LINE_TOKEN_1=${{ 'sHNHa4NZnALtXkYWcqRbcBQBaR15xQtZoUhGsgTc7vR' }}" >> .env
         echo "LINE_TOKEN_2=${{ '2Hc5PTFUAx3PRpdusxY1DHCAnrdSHnc9J34u0tuROkI' }}" >> .env
+    - name: Gas_Notify_H.py
+      run: |
+        python Gas_Notify_H.py
     - name: Gas_Notify.py
       run: |
         python Gas_Notify.py
