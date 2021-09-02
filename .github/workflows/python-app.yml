@@ -31,11 +31,12 @@ jobs:
     - name: Create dot env file
       run: |
         touch .env
-        echo "LINE_TOKEN_1=${{ '2Hc5PTFUAx3PRpdusxY1DHCAnrdSHnc9J34u0tuROkI' }}" >> .env
-        echo "LINE_TOKEN_2=${{ '1XbLYRuGKZVY8pyI4UuGOKXzOQbVxSD54ee5CArIODi' }}" >> .env
+        echo "LINE_TOKEN_1=${{ 'sHNHa4NZnALtXkYWcqRbcBQBaR15xQtZoUhGsgTc7vR' }}" >> .env
+        echo "LINE_TOKEN_2=${{ '2Hc5PTFUAx3PRpdusxY1DHCAnrdSHnc9J34u0tuROkI' }}" >> .env
     - name: Gas_Notify.py
       run: |
         python Gas_Notify.py
+        python Gas_Notify_H.py
     - name: Commit and Push
       run: |
         git config user.name "renshimosawa"
