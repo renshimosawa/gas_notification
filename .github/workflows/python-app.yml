@@ -31,7 +31,7 @@ jobs:
     - name: Create dot env file
       run: |
         touch .env
-        echo "LINE_TOKEN_1=${{ '2Hc5PTFUAx3PRpdusxY1DHCAnrdSHnc9J34u0tuROkI' }},LINE_TOKEN_2=${{ '1XbLYRuGKZVY8pyI4UuGOKXzOQbVxSD54ee5CArIODi' }}" >> .env
+        echo "LINE_TOKEN_1=${{ '2Hc5PTFUAx3PRpdusxY1DHCAnrdSHnc9J34u0tuROkI' }} LINE_TOKEN_2=${{ '1XbLYRuGKZVY8pyI4UuGOKXzOQbVxSD54ee5CArIODi' }}" >> .env
     - name: Gas_Notify.py
       run: |
         python Gas_Notify.py
