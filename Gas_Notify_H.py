@@ -6,7 +6,7 @@ import setting
 import schedule
 
 
-Target_URL = 'https://gogo.gs/shop/0203000164'
+Target_URL = 'https://gogo.gs/shop/0202000046'
 headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36"}
 resp = requests.get(Target_URL, headers=headers)
 resp.raise_for_status()
@@ -15,7 +15,7 @@ soup = bs4.BeautifulSoup(resp.text, "html.parser")
 entries = soup.find_all(class_="price-card")
 message = f'今日の{entries[4].find(class_="mode-label").text}の価格は{entries[4].find(class_="price").text}円です'
 print(f'今日の{entries[4].find(class_="mode-label").text}の価格は{entries[4].find(class_="price").text}円です')
-TOKEN = setting.AP_F
+TOKEN = setting.AP_Y
 
 def main():
     send_line_notify(
@@ -29,7 +29,7 @@ def send_line_notify(notification_message):
     line_notify_token = TOKEN
     line_notify_api = 'https://notify-api.line.me/api/notify'
     headers = {'Authorization': f'Bearer {line_notify_token}'}
-    data = {'message': f'/n{notification_message}'}
+    data = {'message': f' {notification_message}'}
     requests.post(line_notify_api, headers = headers, data = data)
 
 if __name__ == "__main__":
