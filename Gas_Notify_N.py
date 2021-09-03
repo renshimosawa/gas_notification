@@ -13,8 +13,8 @@ resp.raise_for_status()
 now = datetime.datetime.now().strftime('%Y年%m月%d日')
 soup = bs4.BeautifulSoup(resp.text, "html.parser")
 entries = soup.find_all(class_="price-card")
-message = f'今日の{entries[4].find(class_="mode-label").text}の価格は{entries[4].find(class_="price").text}円です'
-print(f'今日の{entries[4].find(class_="mode-label").text}の価格は{entries[4].find(class_="price").text}円です')
+message = f'今日の{entries[4].find(class_="mode-label").text}の価格は{entries[4].find(class_="price").text}円です\n({entries[4].find(class_="date").text})'
+print(f'今日の{entries[4].find(class_="mode-label").text}の価格は{entries[4].find(class_="price").text}円です\n({entries[4].find(class_="date").text})')
 TOKEN = setting.AP_N
 
 def main():

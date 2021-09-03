@@ -12,20 +12,26 @@ resp1 = requests.get(Target_URL_S, headers=headers)
 resp1.raise_for_status()
 now1 = datetime.datetime.now().strftime('%Y年%m月%d日')
 soup1 = bs4.BeautifulSoup(resp1.text, "html.parser")
-shop1 = soup1.find_all(class_="title")
+shop1 = soup1.find_all(class_="title")[0].text.replace(' ','')
 entries1 = soup1.find_all(class_="price-card")
-message_s = f'\n今日の{shop1[0].text}{entries1[0].find(class_="mode-label").text}の価格は{entries1[0].find(class_="price").text}円です'
-print( f'今日の{shop1[0].text}{entries1[0].find(class_="mode-label").text}の価格は{entries1[0].find(class_="price").text}円です')
+oil1 = entries1[0].find(class_="mode-label").text
+price1 = entries1[0].find(class_="price").text
+confirm1 = entries1[0].find(class_="date").text
+message_s = f'\n{shop1}{oil1}の価格は{price1}円です\n({confirm1})'
+print( f'\n{shop1}{oil1}の価格は{price1}円です\n({confirm1})')
 
 Target_URL_Y = 'https://gogo.gs/shop/0299000087'
 resp2 = requests.get(Target_URL_Y, headers=headers)
 resp2.raise_for_status()
 now2 = datetime.datetime.now().strftime('%Y年%m月%d日')
 soup2 = bs4.BeautifulSoup(resp2.text, "html.parser")
-shop2 = soup2.find_all(class_="title")
+shop2 = soup2.find_all(class_="title")[0].text.replace(' ','')
 entries2 = soup2.find_all(class_="price-card")
-message_y = f'今日の{shop2[0].text}{entries2[0].find(class_="mode-label").text}の価格は{entries2[0].find(class_="price").text}円です'
-print( f'今日の{shop2[0].text}{entries2[0].find(class_="mode-label").text}の価格は{entries2[0].find(class_="price").text}円です')
+oil2 = entries1[0].find(class_="mode-label").text
+price2 = entries1[0].find(class_="price").text
+confirm2 = entries1[0].find(class_="date").text
+message_y = f'今日の{shop2}{oil2}の価格は{price2}円です\n({confirm2})'
+print( f'今日の{shop2}{oil2}の価格は{price2}円です\n({confirm2})')
 
 message = message_y + message_s
 
