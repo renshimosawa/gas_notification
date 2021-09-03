@@ -2,7 +2,7 @@ name: Gas Notification
 
 on:
   schedule:
-    - cron: '0 23 * * *'
+    - cron: '45 22 * * *'
 
 jobs:
   build:
@@ -39,11 +39,3 @@ jobs:
         python Gas_Notify_N.py &
         python Gas_Notify_GM.py &
         python Gas_Notify.py &
-    - name: Commit and Push
-      run: |
-        git config user.name "renshimosawa"
-        git config user.email "polaris2760@gmail.com"
-        git add .
-        git commit -m "Commit Message"
-        git pull
-        git push origin master
