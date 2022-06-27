@@ -18,7 +18,7 @@ oil1 = entries1[0].find(class_="mode-label").text
 price1 = entries1[0].find(class_="price").text
 confirm1 = entries1[0].find(class_="date").text
 message_s = f'\n{shop1}{oil1}の価格は{price1}円です\n({confirm1})\nhttps://gogo.gs/shop/0299000043'
-print( f'\n{shop1}{oil1}の価格は{price1}円です\n({confirm1})')
+print(message_s)
 
 Target_URL_Y = 'https://gogo.gs/shop/0299000087'
 resp2 = requests.get(Target_URL_Y, headers=headers)
@@ -31,7 +31,7 @@ oil2 = entries2[0].find(class_="mode-label").text
 price2 = entries2[0].find(class_="price").text
 confirm2 = entries2[0].find(class_="date").text
 message_y = f'今日の{shop2}{oil2}の価格は{price2}円です\n({confirm2})\nhttps://gogo.gs/shop/0299000087'
-print( f'今日の{shop2}{oil2}の価格は{price2}円です\n({confirm2})')
+print(message_y)
 
 message = message_y + message_s
 

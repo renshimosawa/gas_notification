@@ -33,9 +33,11 @@ jobs:
         echo LINE_TOKEN_Y=${{ secrets.LINE_TOKEN_Y }} >> .env
         echo LINE_TOKEN_N=${{ secrets.LINE_TOKEN_N }} >> .env
         echo LINE_TOKEN_GM=${{ secrets.LINE_TOKEN_GM }} >> .env
+        echo LINE_TOKEN_YUKO=${{ secrets.LINE_TOKEN_YUKO }} >> .env
     - name: Notify_H.py
       run: |
         python Gas_Notify_H.py &
         python Gas_Notify_N.py &
         python Gas_Notify_GM.py &
         python Gas_Notify.py &
+        python Gas_Notify_yuko.py &

@@ -14,7 +14,7 @@ now = datetime.datetime.now().strftime('%Y年%m月%d日')
 soup = bs4.BeautifulSoup(resp.text, "html.parser")
 entries = soup.find_all(class_="price-card")
 message = f'今日の{entries[4].find(class_="mode-label").text}の価格は{entries[4].find(class_="price").text}円です\n({entries[4].find(class_="date").text})\nhttps://gogo.gs/shop/0203000164'
-print(f'今日の{entries[4].find(class_="mode-label").text}の価格は{entries[4].find(class_="price").text}円です\n({entries[4].find(class_="date").text})')
+print(message)
 TOKEN = setting.AP_F
 
 def main():

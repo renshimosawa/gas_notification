@@ -6,16 +6,16 @@ import setting
 import schedule
 
 
-Target_URL = 'https://gogo.gs/shop/0202000046'
+Target_URL = 'https://gogo.gs/shop/0213000014'
 headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36"}
 resp = requests.get(Target_URL, headers=headers)
 resp.raise_for_status()
 now = datetime.datetime.now().strftime('%Y年%m月%d日')
 soup = bs4.BeautifulSoup(resp.text, "html.parser")
 entries = soup.find_all(class_="price-card")
-message = f'今日の{entries[4].find(class_="mode-label").text}の価格は{entries[4].find(class_="price").text}円です\n({entries[4].find(class_="date").text})\nhttps://gogo.gs/shop/0202000046'
+message = f'今日の{entries[4].find(class_="mode-label").text}の価格は{entries[4].find(class_="price").text}円です\n({entries[4].find(class_="date").text})\nhttps://gogo.gs/shop/0203000164'
 print(message)
-TOKEN = setting.AP_Y
+TOKEN = setting.AP_YUKO
 
 def main():
     send_line_notify(
