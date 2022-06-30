@@ -13,7 +13,7 @@ resp.raise_for_status()
 now = datetime.datetime.now().strftime('%Y年%m月%d日')
 soup = bs4.BeautifulSoup(resp.text, "html.parser")
 entries = soup.find_all(class_="price-card")
-message = f'今日のつばめ石油の{entries[4].find(class_="mode-label").text}価格は{entries[4].find(class_="price").text}円です\n({entries[4].find(class_="date").text})\nhttps://gogo.gs/shop/0203000164'
+message = f'今日のつばめ石油の{entries[4].find(class_="mode-label").text}価格は{entries[4].find(class_="price").text}円です\n({entries[4].find(class_="date").text})\nhttps://gogo.gs/shop/0213000014'
 print(message)
 TOKEN = setting.AP_YUKO
 
