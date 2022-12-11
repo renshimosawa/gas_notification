@@ -1,6 +1,6 @@
 name: Gas Notification
 
-on:
+on: push
   schedule:
     - cron: '45 22 * * *'
 
