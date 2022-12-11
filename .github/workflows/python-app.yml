@@ -2,42 +2,42 @@ name: Gas Notification
 
 on:
   schedule:
-    - cron: '45 22 * * *'
+    - cron: "45 22 * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.9.6
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.11.1
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11.1
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        pip install bs4
-        pip install requests
-        pip install datetime
-        pip install schedule
-        pip install python-dotenv
-    
-    - name: Create dot env file
-      run: |
-        touch .env
-        echo LINE_TOKEN_F=${{ secrets.LINE_TOKEN_F }} >> .env
-        echo LINE_TOKEN_Y=${{ secrets.LINE_TOKEN_Y }} >> .env
-        echo LINE_TOKEN_N=${{ secrets.LINE_TOKEN_N }} >> .env
-        echo LINE_TOKEN_GM=${{ secrets.LINE_TOKEN_GM }} >> .env
-        echo LINE_TOKEN_YUKO=${{ secrets.LINE_TOKEN_YUKO }} >> .env
-    - name: Notify_H.py
-      run: |
-        python Gas_Notify_H.py &
-        python Gas_Notify_N.py &
-        python Gas_Notify_GM.py &
-        python Gas_Notify.py &
-        python Gas_Notify_yuko.py &
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install bs4
+          pip install requests
+          pip install datetime
+          pip install schedule
+          pip install python-dotenv
+
+      - name: Create dot env file
+        run: |
+          touch .env
+          echo LINE_TOKEN_F=${{ secrets.LINE_TOKEN_F }} >> .env
+          echo LINE_TOKEN_Y=${{ secrets.LINE_TOKEN_Y }} >> .env
+          echo LINE_TOKEN_N=${{ secrets.LINE_TOKEN_N }} >> .env
+          echo LINE_TOKEN_GM=${{ secrets.LINE_TOKEN_GM }} >> .env
+          echo LINE_TOKEN_YUKO=${{ secrets.LINE_TOKEN_YUKO }} >> .env
+      - name: Notify_H.py
+        run: |
+          python Gas_Notify_H.py &
+          python Gas_Notify_N.py &
+          python Gas_Notify_GM.py &
+          python Gas_Notify.py &
+          python Gas_Notify_yuko.py &

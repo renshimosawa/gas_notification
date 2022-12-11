@@ -17,26 +17,26 @@ message = f'今日のつばめ石油の{entries[4].find(class_="mode-label").tex
 print(message)
 TOKEN = setting.AP_YUKO
 
-def main():
-    send_line_notify(
-      message
-    )
+# def main():
+#     send_line_notify(
+#       message
+#     )
 
-def send_line_notify(notification_message):
-    """
-    LINEに通知する
-    """
-    line_notify_token = TOKEN
-    line_notify_api = 'https://notify-api.line.me/api/notify'
-    headers = {'Authorization': f'Bearer {line_notify_token}'}
-    data = {'message': f'\n{notification_message}'}
-    requests.post(line_notify_api, headers = headers, data = data)
+# def send_line_notify(notification_message):
+#     """
+#     LINEに通知する
+#     """
+#     line_notify_token = TOKEN
+#     line_notify_api = 'https://notify-api.line.me/api/notify'
+#     headers = {'Authorization': f'Bearer {line_notify_token}'}
+#     data = {'message': f'\n{notification_message}'}
+#     requests.post(line_notify_api, headers = headers, data = data)
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
 
-schedule.every().day.at("08:00").do(main, send_line_notify)
+# schedule.every().day.at("08:00").do(main, send_line_notify)
 
-while True:
-    schedule.run_pending()
-    time.sleep(3)
+# while True:
+#     schedule.run_pending()
+#     time.sleep(3)
