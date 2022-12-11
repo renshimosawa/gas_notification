@@ -1,8 +1,6 @@
 name: Gas Notification
 
 on:
-  push:
-    branches: [hotfix/workflow]
   schedule:
     - cron: "45 22 * * *"
 
